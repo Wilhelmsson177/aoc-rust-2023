@@ -3,17 +3,21 @@ name: Update readme ⭐️ progress
 on:
     # !Please set a different minute than 51 if you enable this!
     # schedule:
-    #     - cron: "51 */6 * * *" # Every 6 hours
+    #      - cron: "17 */6 * * *" # Every 6 hours
     workflow_dispatch:
+    pull_request:
+        types: [closed]
 
 jobs:
     update-readme:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               if: ${{ env.AOC_ENABLED }}
               env:
                   AOC_ENABLED: ${{ vars.AOC_ENABLED }}
+              with:
+                token: ${{ secrets.PAT }}
             - uses: k2bd/advent-readme-stars@v1
               if: ${{ env.AOC_ENABLED }}
               env:
@@ -23,9 +27,10 @@ jobs:
                   sessionCookie: ${{ secrets.AOC_SESSION }}
                   year: ${{ vars.AOC_YEAR }}
                   leaderboardId: ${{ secrets.AOC_LEADERBOARD_ID }}
-            - uses: stefanzweifel/git-auto-commit-action@v4
+            - uses: stefanzweifel/git-auto-commit-action@v5
               if: ${{ env.AOC_ENABLED }}
               env:
                   AOC_ENABLED: ${{ vars.AOC_ENABLED }}
               with:
                   commit_message: "update readme progess"
+                  push_options: --force

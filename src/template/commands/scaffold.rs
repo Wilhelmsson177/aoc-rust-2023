@@ -4,11 +4,11 @@ use std::{
     process,
 };
 
-const MODULE_TEMPLATE: &str = r#"pub fn part_one(input: &str) -> Option<u32> {
+const MODULE_TEMPLATE: &str = r#"pub fn part_one(_input: &str) -> Option<u32> {
     None
 }
 
-pub fn part_two(input: &str) -> Option<u32> {
+pub fn part_two(_input: &str) -> Option<u32> {
     None
 }
 
@@ -21,13 +21,13 @@ mod tests {
     #[test]
     fn test_part_one() {
         let result = part_one(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(0));
     }
 
     #[test]
     fn test_part_two() {
         let result = part_two(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(0));
     }
 }
 "#;
