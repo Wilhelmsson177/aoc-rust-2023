@@ -1,6 +1,12 @@
 name: Continuous Integration
 
-on: push
+on:
+    push:
+        paths:
+            - src/**
+            - data/**
+            - Cargo.*
+
 
 env:
     CARGO_TERM_COLOR: always
