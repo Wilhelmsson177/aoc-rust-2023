@@ -36,3 +36,4 @@ jobs:
               with:
                   commit_message: "update readme progess"
                   push_options: --force
+                  branch: main
