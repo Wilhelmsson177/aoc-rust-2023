@@ -15,7 +15,7 @@ pub const ANSI_RESET: &str = "\x1b[0m";
     let filepath = cwd
         .join("data")
         .join(folder)
-        .join(format!("{day:02}.txt"));
+        .join(format!("{day:02}.in"));
     let f = fs::read_to_string(filepath);
     f.expect("could not open input file")
 }

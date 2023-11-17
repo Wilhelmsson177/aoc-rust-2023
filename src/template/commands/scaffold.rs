@@ -43,8 +43,8 @@ fn create_file(path: &str) -> Result<File, std::io::Error> {
 pub fn handle(day: u8) {
     let day_padded = format!("{day:02}");
 
-    let input_path = format!("data/inputs/{day_padded}.txt");
-    let example_path = format!("data/examples/{day_padded}.txt");
+    let input_path = format!("data/inputs/{day_padded}.in");
+    let example_path = format!("data/examples/{day_padded}.in");
     let module_path = format!("src/bin/{day_padded}.rs");
 
     let mut file = match safe_create_file(&module_path) {

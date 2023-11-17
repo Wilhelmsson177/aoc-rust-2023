@@ -82,7 +82,7 @@ pub fn submit(day: u8, part: u8, result: &str) -> Result<Output, AocCommandError
 
 fn get_input_path(day: u8) -> String {
     let day_padded = format!("{day:02}");
-    format!("data/inputs/{day_padded}.txt")
+    format!("data/inputs/{day_padded}.in")
 }
 
 fn get_puzzle_path(day: u8) -> String {
